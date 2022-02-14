@@ -20,13 +20,13 @@ const COLORS = [
 ];
 
 //    <-- start window onClick -->   //
-// document.addEventListener('click', function(e) {
-  // const clickedHere = e.target;
-  // console.log("LOG E", e)
-  // console.log('LOG E TARGET',e.target)
-  // console.log('DIR E'); console.dir(e)
-  // console.log('DIR E TARGET'); console.dir(e.target)
-// })
+document.addEventListener('click', function(e) {
+  const clickedHere = e.target;
+  console.log("LOG E", e)
+  console.log('LOG E TARGET',e.target)
+  console.log('DIR E'); console.dir(e)
+  console.log('DIR E TARGET'); console.dir(e.target)
+})
 //    <-- end window onClick -->   //
 
 //    <-- start shuffle -->   //
@@ -62,28 +62,27 @@ function handleCardClick(e) {
 
 let chosenCard = e.target;
 chosenCard.style.backgroundColor = chosenCard.classList[0];
-let flippedCard = chosenCard.classList.toggle('flipped')
-let chosenCards = flippedCard;
-card1 = flippedCard[0]
-card2 = flippedCard[1]
+let card1 = chosenCard;
 
+if (!card1) {
+  card1 = chosenCard;
+} else {
+ card2 = chosenCard;
 }
+
+if ( card1 === card2) {
+  return 'match'
+} else {
+  return 'not match'
+}
+
+
+// }
 //    <-- end click events -->   //
 
 //    <-- start check match -->   //
-function checkMatch() {
-    if ( card1 === card2) {
-        alert('Match found!')
-        matchesFound ++
-    }
-    
-    if ( card1 !== card2 ) {
-        cardsChosen.classList.remove('flipped')
-    }
-    
-    if ( chosenCards.length === 2 ) {
-        setTimeout (checkMatch, 1000)
-    }
+// function checkMatch() {
+ 
 }
 //    <-- end check match -->   //
 
