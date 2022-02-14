@@ -20,10 +20,12 @@ const COLORS = [
 ];
 
 //    <-- start window onClick -->   //
-// window.addEventListener('click', function(e) {
-//   const clickedHere = e.target;
-//   console.log(e)
-//   console.log(clickedHere)
+// document.addEventListener('click', function(e) {
+  // const clickedHere = e.target;
+  // console.log("LOG E", e)
+  // console.log('LOG E TARGET',e.target)
+  // console.log('DIR E'); console.dir(e)
+  // console.log('DIR E TARGET'); console.dir(e.target)
 // })
 //    <-- end window onClick -->   //
 
@@ -59,8 +61,7 @@ function createDivsForColors(colorArray) {
 function handleCardClick(e) {
 
 let chosenCard = e.target;
-console.log(e)
-console.log(e.target)
+chosenCard.style.backgroundColor = chosenCard.classList[0];
 let flippedCard = chosenCard.classList.toggle('flipped')
 let chosenCards = flippedCard;
 card1 = flippedCard[0]
