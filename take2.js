@@ -1,6 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
 const gameContainer = document.getElementById('game');
-// let score = document.getElementById('score');
-
 let card1 = null;
 let card2 = null;
 let noClicking = false;
@@ -11,13 +10,14 @@ let attemptDoc = document.getElementById('attempts');
 let attemptCount = attemptDoc.textContent;
 let matchDoc = document.getElementById('matches');
 let matchCount = matchDoc.textContent;
+let gameStart = null
 
 
 
 
 const COLORS = [ 'red', 'blue', 'green', 'orange', 'purple', 'red', 'blue', 'green', 'orange', 'purple' ];
 
-//    <-- start window onClick -->   //
+	//    <-- start window onClick -->   //
 // document.addEventListener('click', function(e) {
 //   const clickedHere = e.target;
 //   console.log("LOG E", e)
@@ -25,9 +25,9 @@ const COLORS = [ 'red', 'blue', 'green', 'orange', 'purple', 'red', 'blue', 'gre
 //   console.log('DIR E'); console.dir(e)
 //   console.log('DIR E TARGET'); console.dir(e.target)
 // })
-//    <-- end window onClick -->   //
+	//    <-- end window onClick -->   //
 
-//    <-- start shuffle -->   //
+	//    <-- start shuffle -->   //
 function shuffle (array) {
 	let counter = array.length;
 	while (counter > 0) {
@@ -41,9 +41,9 @@ function shuffle (array) {
 }
 
 let shuffledColors = shuffle(COLORS);
-//    <-- end shuffle -->   //
+	//    <-- end shuffle -->   //
 
-//    <-- start color div's -->   //
+	//    <-- start color div's -->   //
 function createDivsForColors (colorArray) {
 	for (let color of colorArray) {
 		const newDiv = document.createElement('div');
@@ -52,12 +52,14 @@ function createDivsForColors (colorArray) {
 		gameContainer.append(newDiv);
 	}
 }
-//    <-- end color div's -->   //
+	//    <-- end color div's -->   //
 
-//    <-- start click events -->   //
+	//    <-- start game -->    //
+	// ! add button to load game
+	//    <-- end game -->    //
 
+	//    <-- start click events -->   //
 function handleCardClick (e) {
-	
 	if (noClicking) return;
 	if (e.target.classList.contains('flipped')) return;
 
@@ -76,14 +78,12 @@ function handleCardClick (e) {
 		noClicking = true;
 		let cardFlipped1 = card1.className;
 		let cardFlipped2 = card2.className;
-		attempts++; //add counter
+		attempts++;
 		attemptDoc.textContent = attempts;
-		console.log(attempts)
 
 		if (cardFlipped1 === cardFlipped2) {
-			matchesFound++; //add counter
+			matchesFound++;
 			matchDoc.textContent = matchesFound;
-			// alert('You found a match!');
 			console.log('found match');
 			console.log(matchesFound);
 			cardsFlipped += 2;
@@ -102,18 +102,14 @@ function handleCardClick (e) {
 				card1 = null;
 				card2 = null;
 				noClicking = false;
-				console.log('no match');
-				
-
-				// alert('Try again!')
 			}, 1250);
 			
 		}
 	}
 	if (cardsFlipped === COLORS.length) alert('You win!');
 }
+	//    <-- end check match -->   //
 
-//    <-- end check match -->   //
-
-// when the DOM loads
+	// when the DOM loads
 createDivsForColors(shuffledColors);
+})
