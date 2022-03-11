@@ -1,16 +1,24 @@
-<!doctype html>
-<head>
-  <title>Connect 4</title>
-  <link href="connect4.css" rel="stylesheet">
-</head>
-<body>
-
-  <h3 class = 'players-turn'></h3>
-<div id="game">
-  <table id="board"></table>
-  </div>
-
-<script src="connect4.js"></script>
-
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Memory Game!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Memory Game!</h1>
+    <h3>
+    <!-- <h3>Score:<span id ="score"></span></h3> -->
+    <label for="attempts" class="attempts"> Attempts: </label><span id ='attempts' class="attemptz"> 0 </span>
+  </h3>
+  <h3>
+    <label for="matches" class="matches"> Matched: </label><span id ='matches' > 0 </span>
+  </h3>
+  <h4><button id="startGame">Start Game</button></h4>
+  <form action="">
+  <h4><button id="newGame">New Game</button></h4>
+</form>
+    <div id="game"> </div>
+    <script src="take2.js"></script>
+  </body>
 </html>
